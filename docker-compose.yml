@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+    env_file:
+      - ./frontend/.env
+    ports:
+      - "5173:5173"
+    networks:
+      - talentsphere-network
+
+  node-backend:
+    build:
+      context: ./backend/node-backend
+    env_file:
+      - ./backend/node-backend/.env
+    ports:
+      - "5000:5000"
+    networks:
+      - talentsphere-network
+
+  fastapi-service:
+    build:
+      context: ./backend/fastapi-service
+    env_file:
+      - ./backend/fastapi-service/.env
+    ports:
+      - "8000:8000"
+    networks:
+      - talentsphere-network
+
+networks:
+  talentsphere-network:
+    driver: bridge

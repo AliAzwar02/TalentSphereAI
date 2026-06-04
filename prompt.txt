@@ -1,0 +1,63 @@
+# TalentSphere Project Run Guide
+
+This guide provides comprehensive instructions on how to run all components of the TalentSphere project. The project consists of three main parts:
+1. Node.js Backend (Port 5000)
+2. FastAPI Service (Port 8000)
+3. React Frontend (Port 5173)
+
+---
+
+## Prerequisites
+- Node.js and npm installed
+- Python 3.x installed
+- Ensure `.env` files are configured in the following directories:
+  - `backend/node-backend/.env`
+  - `backend/fastapi-service/.env`
+  - `frontend/.env`
+
+---
+
+## Method 1: Docker Setup (Recommended)
+If you have Docker and Docker Desktop installed and running, you can start the entire project with a single command.
+Open a terminal in the project root (`f:\Projects\TalentSphereAI`) and run:
+```bash
+docker-compose up -d
+```
+
+---
+
+## Method 2: Manual Startup (Windows)
+If you prefer running the servers locally without Docker, open three separate terminal or PowerShell windows in the project root directory.
+
+### Terminal 1: Start Node Backend
+Navigate to the node backend directory and run the dev server:
+```powershell
+cd backend\node-backend
+npm run dev
+```
+*(Note: If you encounter PowerShell script execution policy errors, you can run: `cmd /c "npm run dev"` instead)*
+
+### Terminal 2: Start FastAPI Service
+Navigate to the FastAPI service directory, activate the virtual environment, and start the Uvicorn server:
+```powershell
+cd backend\fastapi-service
+.\env\Scripts\activate
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+```
+*(Alternatively, run it directly without activating: `.\env\Scripts\python.exe -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload`)*
+
+### Terminal 3: Start Frontend
+Navigate to the frontend directory and start the Vite dev server:
+```powershell
+cd frontend
+npm run dev
+```
+*(Note: If you encounter PowerShell script execution policy errors, you can run: `cmd /c "npm run dev"` instead)*
+
+---
+
+## Access the Application
+Once the servers are running, you can access the different components at the following URLs:
+- **Frontend App:** http://localhost:5173
+- **Node Backend API:** http://localhost:5000
+- **FastAPI Documentation:** http://localhost:8000/docs
