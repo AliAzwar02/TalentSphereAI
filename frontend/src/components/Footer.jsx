@@ -49,7 +49,7 @@ function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-700 text-center">
-          <p className="text-gray-300">© 2025 TalentSphere. All rights reserved.</p>
+          <p className="text-gray-300">© 2026 TalentSphere. All rights reserved.</p>
         </div>
       </div>
     </footer>

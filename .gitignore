@@ -103,14 +103,22 @@ data/
 
 # FastAPI specific
 __pycache__/
+**/__pycache__/
 *.py[cod]
 *.pyo
+*.pyd
 
 # Python virtual environments
 env/
+env_new/
 .env/
+venv/
 
-# FastAPI generated files
+# ChromaDB / Vector DB data
+backend/fastapi-service/data/
+data/*.sqlite3
+data/*.parquet
+
+# FastAPI generated DB files
 *.db
 *.sqlite3
-*.json
